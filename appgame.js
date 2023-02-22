@@ -81,7 +81,7 @@ const game = () => {
         const computerChoice = computerOptions[choiceNumber];
 
         // Function to check who wins
-        console.log(this.innerText);
+        // console.log(this.innerText);
         winner(this.innerText, computerChoice);
 
         // Calling gameOver function after 10 moves
