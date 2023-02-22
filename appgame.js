@@ -1,3 +1,4 @@
+// Start button function
 const startGame = () => {
   // console.log("click");
   document.getElementById("game").style.display = "none";
@@ -8,6 +9,7 @@ const startGame = () => {
   document.getElementById("removeBG").style.background = "none";
 };
 
+// Back button function
 const backGame = () => {
   // console.log("click");
   document.getElementById("game").style.display = "flex";
@@ -15,6 +17,42 @@ const backGame = () => {
   document.getElementById("startBtn").style.opacity = "100%";
   document.getElementById("backBtn").style.opacity = "0%";
   document.querySelector("html").style.backgroundColor = "#E9C93F";
+};
+
+// Add number of round
+const addRound = () => {
+  let round = parseInt(document.getElementById("round-choice").innerText);
+  if (round < 10) {
+    round = round + 1;
+  }
+  document.getElementById("round-choice").innerHTML = "<h1>" + round + "</h1>";
+};
+
+// Reduce number of round
+const minusRound = () => {
+  let round = parseInt(document.getElementById("round-choice").innerText);
+  if (round > 0) {
+    round = round - 1;
+  }
+  document.getElementById("round-choice").innerHTML = "<h1>" + round + "</h1>";
+};
+
+// Add number of timer
+const addTimer = () => {
+  let timer = parseInt(document.getElementById("timer-choice").innerText);
+  if (timer < 15) {
+    timer = timer + 1;
+  }
+  document.getElementById("timer-choice").innerHTML = "<h1>" + timer + "</h1>";
+};
+
+// Reduce number of timer
+const minusTimer = () => {
+  let timer = parseInt(document.getElementById("timer-choice").innerText);
+  if (timer > 0) {
+    timer = timer - 1;
+  }
+  document.getElementById("timer-choice").innerHTML = "<h1>" + timer + "</h1>";
 };
 
 // Complete logic of game inside this function
