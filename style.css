@@ -191,3 +191,18 @@ footer {
     transition: 0.3s;
     cursor: pointer;
 }
+
+.pose span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#playGame > div.score {
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.score div {
+    width: 10rem;
+}
