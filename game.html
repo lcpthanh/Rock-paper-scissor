@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        html {
+            background-color: #E9C93F;
+        }
+    </style>
+  </head>
+  <body>
+    <section class="home" id="removeBG">
+      <nav>
+        <a href="home.html">
+            <div class="logo"><img src="images/logo.svg" alt="logo" /> Team 3</div>
+        </a>
+        <div id="settings">
+          <img src="images/settings.svg" alt="settings" />
+        </div>
+      </nav>
+      <div id="game" class="screen">
+        <div id="round">
+          <h3>NUMBER OF ROUNDS</h3>
+          <div id="round-choice"><h1>1</h1></div>
+          <div class="userChoice">
+            <img src="images/minus.svg" alt="minus" />
+            <img src="images/add.svg" alt="add" />
+          </div>
+        </div>
+        <div id="timer">
+          <h3>TIMER</h3>
+          <div id="timer-choice"><h1>5</h1></div>
+          <div class="userChoice">
+            <img src="images/minus.svg" alt="minus" />
+            <img src="images/add.svg" alt="add" />
+          </div>
+        </div>
+      </div>
+      <div id="playGame" class="screen">
+        <h3>Select a Pose</h3><br><br><br>
+        <div>
+            <span><img src="images/rock.svg" alt="rock"></span>
+            <span><img src="images/paper.svg" alt="paper"></span>
+            <span><img src="images/scissors.svg" alt="scissors"></span>
+        </div>
+      </div>
+      <footer>
+        <div class="button" id="backBtn" onclick="backGame();">Back<br>←</div>
+        <div class="button" id="startBtn" onclick="startGame();">Start<br>→</div>
+      </footer>
+    </section>
+    <script src="appgame.js"></script>
+  </body>
+</html>
