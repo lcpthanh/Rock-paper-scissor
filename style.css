@@ -154,6 +154,7 @@ footer {
 #backBtn {
   opacity: 0%;
   background-image: url("images/Ellipse-black.svg");
+  pointer-events: none;
 }
 
 #backBtn:hover {

@@ -4,7 +4,9 @@ const startGame = () => {
   document.getElementById("game").style.display = "none";
   document.getElementById("playGame").style.display = "flex";
   document.getElementById("startBtn").style.opacity = "0%";
+  document.getElementById("startBtn").style.pointerEvents = "none";
   document.getElementById("backBtn").style.opacity = "100%";
+  document.getElementById("backBtn").style.pointerEvents = "auto";
   document.querySelector("html").style.backgroundColor = "white";
   document.getElementById("removeBG").style.background = "none";
   document.querySelector(".movesleft").innerText =
