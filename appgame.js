@@ -1,8 +1,8 @@
 // Start button function
 const startGame = () => {
-  // console.log("click");
   document.getElementById("game").style.display = "none";
   document.getElementById("playGame").style.display = "flex";
+  document.getElementById("counter").style.opacity = "100%";
   document.getElementById("startBtn").style.opacity = "0%";
   document.getElementById("startBtn").style.pointerEvents = "none";
   document.getElementById("backBtn").style.opacity = "100%";
@@ -66,6 +66,29 @@ const game = () => {
 
   //   // Function to
   const playGame = () => {
+    // Player random choice
+    const randomChoice = () => {
+      const options = ["rock", "paper", "scissors"];
+      const playerChoiceNumber = Math.floor(Math.random() * 3);
+      const computerChoiceNumber = Math.floor(Math.random() * 3);
+      const playerRandom = options[playerChoiceNumber];
+      const computerRandom = options[computerChoiceNumber];
+      winner(playerRandom, computerRandom);
+    };
+
+    // Timer function
+    const countDown = (timer) => {
+      document.getElementById("counter").innerHTML = "<h2>Next Round</h2>";
+      window.timeleft = setInterval(function () {
+        if (timer <= 0) {
+          clearInterval(window.timeleft);
+          randomChoice();
+        }
+        document.getElementById("counter").innerHTML = "<h1>" + timer + "</h1>";
+        timer -= 1;
+      }, 1000);
+    };
+
     const rockBtn = document.getElementById("rock");
     const paperBtn = document.getElementById("paper");
     const scissorBtn = document.getElementById("scissors");
@@ -75,15 +98,15 @@ const game = () => {
     // Function to start playing game
     playerOptions.forEach((option) => {
       option.addEventListener("click", function () {
-        const movesLeft = document.querySelector(".movesleft");
-        moves++;
-        movesLeft.innerText = `Rounds Left: ${round - moves}`;
+
+        const userTimer = document.getElementById("timer-choice").innerText;
+        clearInterval(window.timeleft);
+        countDown(userTimer);
 
         const choiceNumber = Math.floor(Math.random() * 3);
         const computerChoice = computerOptions[choiceNumber];
 
         // Function to check who wins
-        // console.log(this.innerText);
         winner(this.innerText, computerChoice);
 
         // Calling gameOver function after 10 moves
@@ -96,63 +119,71 @@ const game = () => {
 
   // Function to decide winner
   const winner = (player, computer) => {
+    window.movesLeft = document.querySelector(".movesleft");
+    moves++;
+    window.movesLeft.innerText = `Rounds Left: ${round - moves}`;
+
+    const rockBtn = document.getElementById("rock");
+    const paperBtn = document.getElementById("paper");
+    const scissorBtn = document.getElementById("scissors");
+    const playerOptions = [rockBtn, paperBtn, scissorBtn];
+
     const result = document.querySelector(".result");
     const playerScoreBoard = document.querySelector(".p-count");
     const computerScoreBoard = document.querySelector(".c-count");
     player = player.toLowerCase();
     computer = computer.toLowerCase();
     if (player === computer) {
-      result.textContent = "Computer: " + computer.toUpperCase() + ".Tie";
+      result.innerHTML = "Computer: <b>" + computer.toUpperCase() + "</b>. Round <b>Ties</b>";
     } else if (
       (player == "rock" && computer == "paper") ||
       (player == "paper" && computer == "scissors") ||
       (player == "scissors" && computer == "rock")
     ) {
-      result.textContent =
-        "Computer: " + computer.toUpperCase() + ". Computer Won";
+      result.innerHTML =
+        "Computer: <b>" + computer.toUpperCase() + "</b>. Round Winner: <b>Computer</b>.";
       computerScore++;
       computerScoreBoard.textContent = computerScore;
     } else {
-      result.textContent =
-        "Computer: " + computer.toUpperCase() + ". Player Won";
+      result.innerHTML =
+        "Computer: <b>" +
+        computer.toUpperCase() +
+        "</b>. Round Winner: <b>Player</b>.";
       playerScore++;
       playerScoreBoard.textContent = playerScore;
     }
+    if (moves == round) {
+      gameOver(playerOptions, movesLeft);
+    }
   };
 
-//   Function to run when game is over
-    const gameOver = (playerOptions, movesLeft) => {
-    //   const chooseMove = document.querySelector(".move");
-      const result = document.querySelector(".result");
-    //   const reloadBtn = document.querySelector(".reload");
+  //   Function to run when game is over
+  const gameOver = (playerOptions, movesLeft) => {
+    clearInterval(window.timeleft);
+    const result = document.querySelector(".result");
 
-      playerOptions.forEach((option) => {
-        option.style.pointerEvents = "none";
-      });
+    playerOptions.forEach((option) => {
+      option.style.pointerEvents = "none";
+    });
 
-      result.innerText = "Game Over!!";
-      movesLeft.style.opacity = "0";
+    result.innerText = "Game Over!!";
+    movesLeft.style.opacity = "0";
 
-      if (playerScore > computerScore) {
-        result.style.fontSize = "2rem";
-        result.innerText = "You Won The Game";
-        result.style.color = "#308D46";
-      } else if (playerScore < computerScore) {
-        result.style.fontSize = "2rem";
-        result.innerText = "You Lost The Game";
-        result.style.color = "red";
-      } else {
-        result.style.fontSize = "2rem";
-        result.innerText = "Tie";
-        result.style.color = "grey";
-      }
-    //   reloadBtn.innerText = "Restart";
-    //   reloadBtn.style.display = "flex";
-    //   reloadBtn.addEventListener("click", () => {
-    //     window.location.reload();
-    //   });
-    };
+    if (playerScore > computerScore) {
+      result.style.fontSize = "2rem";
+      result.innerText = "You Won The Game";
+      result.style.color = "#308D46";
+    } else if (playerScore < computerScore) {
+      result.style.fontSize = "2rem";
+      result.innerText = "You Lost The Game";
+      result.style.color = "red";
+    } else {
+      result.style.fontSize = "2rem";
+      result.innerText = "Game Ties";
+      result.style.color = "grey";
+    }
+  };
 
-  //   // Calling playGame function inside game
+  // Calling playGame function inside game
   playGame();
 };

@@ -95,8 +95,8 @@ nav {
 }
 
 .button:hover {
-    background-image: url("images/Ellipse-filled.svg");
-    transition: 0.3s;
+  background-image: url("images/Ellipse-filled.svg");
+  transition: 0.3s;
 }
 
 a {
@@ -141,7 +141,7 @@ a {
 }
 
 .userChoice span:hover img {
-    filter: invert(1);
+  filter: invert(1);
 }
 
 footer {
@@ -158,9 +158,9 @@ footer {
 }
 
 #backBtn:hover {
-    background-image: url("images/Ellipse-black-filled.svg");
-    color: white;
-    transition: 0.3s;
+  background-image: url("images/Ellipse-black-filled.svg");
+  color: white;
+  transition: 0.3s;
 }
 
 #playGame {
@@ -188,22 +188,41 @@ footer {
 }
 
 .userChoice img:hover {
-    filter: invert(1);
-    transition: 0.3s;
-    cursor: pointer;
+  filter: invert(1);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .pose span {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #playGame > div.score {
-    justify-content: space-evenly;
-    text-align: center;
+  justify-content: space-evenly;
+  text-align: center;
 }
 
 .score div {
-    width: 10rem;
+  width: 10rem;
+}
+
+#counter {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  opacity: 0%;
+  height: 8rem;
+  width: 18rem;
+  background-color: #e9c93f;
+  border-radius: 0 0 2rem 2rem;
+}
+
+#counter h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
 }
