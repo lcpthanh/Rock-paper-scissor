@@ -1,20 +1,13 @@
-// Get DOM elements
-const bgSelect = document.getElementById('bg-color');
-const volumeInput = document.getElementById('volume');
+let winningsound = new Audio("Sound_files/TB7L64W-winning.mp3");
+let losingsound = new Audio("Sound_files/ACYR47F-8bit-lose.mp3");
+let tiesound = new Audio("Sound_files/V89QYW3-tie-game-horns.mp3");
+let sound = document.getElementById("sound");
+let volumeControl = document.getElementById("volume-control");
 
-// Load current settings
+sound.addEventListener("canplaythrough", function() {
+    sound.volume = volumeControl.value;
+});
 
-
-// Load sound volume
-const volume = localStorage.getItem('volume');
-if (volume) {
-    volumeInput.value = volume;
-}
-
-// Save settings on change
-
-
-volumeInput.addEventListener('change', function () {
-    const volume = volumeInput.value;
-    localStorage.setItem('volume', volume);
+volumeControl.addEventListener("input", function() {
+    sound.volume = volumeControl.value;
 });

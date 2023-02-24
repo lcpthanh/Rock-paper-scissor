@@ -158,6 +158,9 @@ const game = () => {
   };
 
   //   Function to run when game is over
+  let winningsound = new Audio("Sound_files/TB7L64W-winning.mp3");
+  let losingsound = new Audio("Sound_files/ACYR47F-8bit-lose.mp3");
+  let tiesound = new Audio("Sound_files/V89QYW3-tie-game-horns.mp3");
   const gameOver = (playerOptions, movesLeft) => {
     clearInterval(window.timeleft);
     const result = document.querySelector(".result");
@@ -173,14 +176,18 @@ const game = () => {
       result.style.fontSize = "2rem";
       result.innerText = "You Won The Game";
       result.style.color = "#308D46";
+      winningsound.play();
+
     } else if (playerScore < computerScore) {
       result.style.fontSize = "2rem";
       result.innerText = "You Lost The Game";
       result.style.color = "red";
+      losingsound.play();
     } else {
       result.style.fontSize = "2rem";
       result.innerText = "Game Ties";
       result.style.color = "grey";
+      tiesound.play();
     }
   };
 
