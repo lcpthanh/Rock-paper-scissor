@@ -136,8 +136,10 @@ a {
 #round-choice,
 #timer-choice {
   background-image: url("images/card-outline.svg");
-  height: 28.125rem;
-  width: 22rem;
+  background-size: 270px;
+  height: 22.125rem;
+  width: 17rem;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,6 +147,7 @@ a {
 
 .userChoice img {
   margin: 1rem;
+  margin-bottom: 2rem;
 }
 
 .userChoice span:hover img {
@@ -157,6 +160,8 @@ footer {
   justify-content: space-between;
   width: 80vw;
 }
+
+
 
 #backBtn {
   opacity: 0%;
