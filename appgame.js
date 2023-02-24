@@ -184,7 +184,7 @@ const game = () => {
       option.style.pointerEvents = "none";
     });
 
-    result.innerText = "Game Over!!";
+    document.getElementById("counter").innerHTML = "<h2>Game Over</h2>";
     movesLeft.style.opacity = "0";
 
     if (playerScore > computerScore) {
