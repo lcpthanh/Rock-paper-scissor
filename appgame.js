@@ -57,6 +57,16 @@ const minusTimer = () => {
   document.getElementById("timer-choice").innerHTML = "<h1>" + timer + "</h1>";
 };
 
+// Click sound function
+const audio = new Audio("Sound_files/click.mp3");
+const buttons = document.querySelectorAll(".soundBtn");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    audio.play();
+  });
+});
+
 // Complete logic of game inside this function
 const game = () => {
   let playerScore = 0;
@@ -98,7 +108,6 @@ const game = () => {
     // Function to start playing game
     playerOptions.forEach((option) => {
       option.addEventListener("click", function () {
-
         const userTimer = document.getElementById("timer-choice").innerText;
         clearInterval(window.timeleft);
         countDown(userTimer);
@@ -134,14 +143,17 @@ const game = () => {
     player = player.toLowerCase();
     computer = computer.toLowerCase();
     if (player === computer) {
-      result.innerHTML = "Computer: <b>" + computer.toUpperCase() + "</b>. Round <b>Ties</b>";
+      result.innerHTML =
+        "Computer: <b>" + computer.toUpperCase() + "</b>. Round <b>Ties</b>";
     } else if (
       (player == "rock" && computer == "paper") ||
       (player == "paper" && computer == "scissors") ||
       (player == "scissors" && computer == "rock")
     ) {
       result.innerHTML =
-        "Computer: <b>" + computer.toUpperCase() + "</b>. Round Winner: <b>Computer</b>.";
+        "Computer: <b>" +
+        computer.toUpperCase() +
+        "</b>. Round Winner: <b>Computer</b>.";
       computerScore++;
       computerScoreBoard.textContent = computerScore;
     } else {
@@ -177,7 +189,6 @@ const game = () => {
       result.innerText = "You Won The Game";
       result.style.color = "#308D46";
       winningsound.play();
-
     } else if (playerScore < computerScore) {
       result.style.fontSize = "2rem";
       result.innerText = "You Lost The Game";
