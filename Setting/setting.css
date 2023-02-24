@@ -1,0 +1,50 @@
+.settings-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9c93f;
+}
+
+.settings-container h2 {
+    margin-top: 0;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color:orange;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+.home {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/ovalBG.svg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 10rem;
+    background-size: cover;
+}

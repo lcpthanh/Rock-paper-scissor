@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rock Paper Scissors</title>
-    <link rel="stylesheet" href="style.css" />
-    <style>
-      html {
-        background-color: #e9c93f;
-      }
 
-      .home {
-        background: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="counter"><h1>Ready</h1></div>
-    <section class="home" id="removeBG">
-      <nav>
-        <a href="home.html">
-          <div class="logo">
-            <img src="images/logo.svg" alt="logo" /> Team 3
-          </div>
-        </a>
-        <div id="settings">
-          <img src="images/settings.svg" alt="settings" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    html {
+      background-color: #e9c93f;
+    }
+
+    .home {
+      background: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="counter">
+    <h1>Ready</h1>
+  </div>
+  <section class="home" id="removeBG">
+    <nav>
+      <a href="home.html">
+        <div class="logo">
+          <img src="images/logo.svg" alt="logo" /> Team 3
         </div>
-      </nav>
-      <div id="game" class="screen">
-        <div id="round">
-          <h3>NUMBER OF ROUNDS</h3>
-          <div id="round-choice"><h1>5</h1></div>
-          <div class="userChoice">
-            <span
-              ><img src="images/minus.svg" alt="minus" onclick="minusRound();"
-            /></span>
-            <span
-              ><img src="images/add.svg" alt="add" onclick="addRound();"
-            /></span>
-          </div>
-        </div>
-        <div id="timer">
-          <h3>TIMER (s)</h3>
-          <div id="timer-choice"><h1>5</h1></div>
-          <div class="userChoice">
-            <span
-              ><img src="images/minus.svg" alt="minus" onclick="minusTimer();"
-            /></span>
-            <span
-              ><img src="images/add.svg" alt="add" onclick="addTimer();"
-            /></span>
-          </div>
+      </a>
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Setting</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="Setting/setting.html">Background Colour</a>
+          <a href="sound/sound.html">Sound and Volume</a>
         </div>
       </div>
-      <div id="playGame" class="screen">
-        <h3>Select a Pose</h3>
-        <div class="score">
-          <div class="playerScore">
-            <h2>Player</h2>
-            <p class="p-count count">0</p>
-          </div>
-          <div class="movesleft"></div>
-          <div class="computerScore">
-            <h2>Computer</h2>
-            <p class="c-count count">0</p>
-          </div>
+    </nav>
+    <div id="game" class="screen">
+      <div id="round">
+        <h3>NUMBER OF ROUNDS</h3>
+        <div id="round-choice">
+          <h1>5</h1>
         </div>
-        <br /><br /><br />
-        <div class="pose">
-          <span id="rock"><img src="images/rock2D.svg" alt="rock" />Rock</span>
-          <span id="paper"><img src="images/paper2D.svg" alt="paper" />Paper</span>
-          <span id="scissors"
-            ><img src="images/scissors2D.svg" alt="scissors"
-          />Scissors</span>
+        <div class="userChoice">
+          <span><img src="images/minus.svg" alt="minus" onclick="minusRound();" /></span>
+          <span><img src="images/add.svg" alt="add" onclick="addRound();" /></span>
         </div>
       </div>
-      <footer>
-        <div class="button" id="backBtn" onclick="backGame();">Back<br />←</div>
-        <div class="result"></div>
-        <div class="button" id="startBtn" onclick="startGame();">
-          Start<br />→
+      <div id="timer">
+        <h3>TIMER (s)</h3>
+        <div id="timer-choice">
+          <h1>5</h1>
         </div>
-      </footer>
-    </section>
-    <script src="appgame.js"></script>
-  </body>
+        <div class="userChoice">
+          <span><img src="images/minus.svg" alt="minus" onclick="minusTimer();" /></span>
+          <span><img src="images/add.svg" alt="add" onclick="addTimer();" /></span>
+        </div>
+      </div>
+    </div>
+    <div id="playGame" class="screen">
+      <h3>Select a Pose</h3>
+      <div class="score">
+        <div class="playerScore">
+          <h2>Player</h2>
+          <p class="p-count count">0</p>
+        </div>
+        <div class="movesleft"></div>
+        <div class="computerScore">
+          <h2>Computer</h2>
+          <p class="c-count count">0</p>
+        </div>
+      </div>
+      <br /><br /><br />
+      <div class="pose">
+        <span id="rock"><img src="images/rock2D.svg" alt="rock" />Rock</span>
+        <span id="paper"><img src="images/paper2D.svg" alt="paper" />Paper</span>
+        <span id="scissors"><img src="images/scissors2D.svg" alt="scissors" />Scissors</span>
+      </div>
+    </div>
+    <footer>
+      <div class="button" id="backBtn" onclick="backGame();">Back<br />←</div>
+      <div class="result"></div>
+      <div class="button" id="startBtn" onclick="startGame();">
+        Start<br />→
+      </div>
+    </footer>
+  </section>
+  <script src="appgame.js"></script>
+  <script src="dropdown.js"></script>
+</body>
+
 </html>
