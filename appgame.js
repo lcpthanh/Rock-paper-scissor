@@ -171,8 +171,11 @@ const game = () => {
 
   //   Function to run when game is over
   let winningsound = new Audio("Sound_files/TB7L64W-winning.mp3");
+  winningsound.volume = 0.2;
   let losingsound = new Audio("Sound_files/ACYR47F-8bit-lose.mp3");
+  losingsound.volume = 0.2;
   let tiesound = new Audio("Sound_files/V89QYW3-tie-game-horns.mp3");
+  tiesound.volume = 0.2;
   const gameOver = (playerOptions, movesLeft) => {
     clearInterval(window.timeleft);
     const result = document.querySelector(".result");
